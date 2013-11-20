@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
 </head>
-  <body ng-app="lisirdApp">
+  <body ng-app="lisirdApp">  	
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -26,7 +26,37 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div id="wrapper" class="container">
+    	<noscript><div id="noscript-padding"></div></noscript>
+    	<div id="inner_wrapper">
+    		<div id="logo">
+    			<a href="#/">LISIRD - LASP Solar Irradiance Data Center</a>
+    		</div>
+    		<div id="content">
+    			<div id="nav">
+    				<ul id="nav">
+    					<li id="liGeneral">
+    						<a href="#/"><span id="Home">Home</span></a>
+    					</li>
+    				</ul>
+    			</div>
+    			<div id="main">
+    				<div ng-view></div>
+    			</div>
+    			<div id="insidefooter">
+    				<a href="#/">Lisird Home</a> | 
+    				<a href="#/sitemap">Site Map</a> | 
+    				<a href="#/contact">Contact Us</a> | 
+    				<a href="#/about">About Lisird</a> | 
+    			</div>
+    		</div>
+    		<div id="footer">
+    			<a target="_blank" href="http://lasp.colorado.edu">Laboratory for Atmospheric and Space Physics</a>
+    			<br>
+    			<a target="_blank" href="http://www.colorado.edu">© Regents of the University of Colorado 2012</a>
+    		</div>
+    	</div>    	
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -38,17 +68,15 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
-
-
+    
     <script src="bower_components/angular/angular.js"></script>
+    <!-- build:js scripts/modules.js -->
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <!-- endbuild -->
 
-        <!-- build:js scripts/modules.js -->
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

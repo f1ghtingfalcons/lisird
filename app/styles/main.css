@@ -1,9 +1,3 @@
-body {
-    background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
-}
-
 .hero-unit {
     margin: 50px auto 0 auto;
     width: 300px;
@@ -19,4 +13,568 @@ body {
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
+}
+
+/* ---------- Reset ------------ */
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,dialog,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,header,hgroup,hr,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,meter,nav,object,ol,output,pre,progress,q,rp,rt,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video,xmp
+	{
+	border: 0;
+	margin: 0;
+	outline: 0;
+	padding: 0
+}
+html {
+	overflow: auto
+}
+cite,h1,h2,h3,h4,h5,h6 {
+	font-style: normal;
+	font-weight: 400
+}
+img,object,embed {
+	max-width: 100%
+}
+blockquote,q {
+	quotes: none
+}
+blockquote:before,blockquote:after,q:before,q:after {
+	content: none
+}
+abbr[title],dfn[title] {
+	border-bottom: none;
+	cursor: help
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+th {
+	font-weight: 700;
+	text-align: left;
+	vertical-align: bottom
+}
+td,td img {
+	font-weight: 400;
+	vertical-align: top
+}
+img,input,select {
+	vertical-align: middle;
+}
+/* ---------- Elements ------------ */
+body {
+	background-color: #003;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 13px
+}
+a {
+	text-decoration: none
+}
+a:link {
+	color: #20c
+}
+a:visited {
+	color:#20c
+}
+a:hover, #footer a:hover, #insidefooter a:hover, #homelinks a:hover  {
+	color: #f80
+}
+aside {
+	float:left;
+	margin-right: 20px
+}
+#homelinks {
+	font-size: 14px;
+	font-variant: small-caps;
+	height: 24px;
+	margin: -7px auto 0;
+	width: 720px
+}
+#homelinks td {
+	padding: 0 0 0 20px
+}
+#footer a {
+	color: #39c
+}
+#insidefooter a {
+	color: #fff
+}
+blockquote {
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 2px 2px 4px #666;
+	color: #a51500;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin: 0 14px 20px;
+	padding: 10px
+}
+caption {
+  font-style: italic;
+  font-size: 90%;
+  caption-side: bottom;
+  text-align: left
+}
+cite {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: italic
+}
+dt {
+	padding-bottom: 5px
+}
+h1.title {
+	color: #000;
+	font-size: 22px;
+	font-variant: normal;
+	font-weight: 700;
+	padding: 12px 0 15px;
+	text-align: center;
+	text-shadow: 3px 2px 3px grey
+}
+h1 {
+	color: #0f09d8;
+	font-size: 24px;
+	font-variant: small-caps;
+}
+h2 {
+	color: #a2050a;
+	font-size: 17px;
+	text-decoration: underline
+}
+h3 {
+	color: #a2050a;
+	font-size: 14px;
+}
+h4 {
+	color: #a2050a;
+	font-size: 1em;
+}
+hr {
+	border-top: 1px solid #ccc;
+	display: block;
+	height: 1px;
+	margin: 1em 0
+}
+p {
+	margin: 0 0 10px
+}
+ol {
+	margin-left: 5px
+}
+ul {
+	padding-bottom: 15px
+}
+/* ---------- Header ------------ */
+#logo,#logo_small {
+	background-repeat: no-repeat;
+	border-left: 1px #ccc solid;
+	border-radius: 8px 8px 0 0;
+	border-right: 1px #ccc solid;
+	border-top: 1px #ccc solid;
+	margin: 10px auto 0;
+	text-indent: -9999px;
+	width: 900px
+}
+#logo {
+	background-image: url("../images/logo.png");
+	height: 148px
+}
+#logo_small {
+	background-image: url("/lisird/images/LISIRD_title_sm.png");
+	height: 34px
+}
+#logo a,#logo_small a {
+	display: block;
+	height: 100%;
+	width: 100%
+}
+/* ---------- Page Structures ------------ */
+#content {
+	background: #000069;
+	border-bottom: 1px #ccc solid;
+	border-left: 1px #ccc solid;
+	border-radius: 0 0 9px 9px;
+	border-right: 1px #ccc solid;
+	margin: 0 auto;
+	padding: 3px 3px 0;
+	width: 100%;
+	z-index: 5999
+}
+#inner_wrapper {
+	margin: 0 auto;
+	width: 894px
+}
+#wrapper {
+	background-image: url("../images/lisird_back.jpg");
+	background-repeat: repeat-x;
+	height: 100%;
+	padding-top: 10px
+}
+.col3 {
+	float: left;
+	padding-right:50px
+}
+
+#col2of3 {
+	float: left;
+	width: 40%;
+}
+#col3of3 {
+	float: left;
+}
+/* ---------- Nav's ------------ */
+.bluetextbox {
+	color: #77a5f1;
+	background-color: #dce6ff;
+	margin-bottom: 20px;
+	padding: 20px;
+	text-align: left
+}
+#nav {
+	height: 25px;
+	min-height: 25px;
+	position: relative;
+	width: 894px;
+	z-index: 6000
+}
+#nav ul {
+	background-repeat: repeat-x;
+	float: left;
+	list-style-type: none;
+	margin-top: -6px
+}
+#nav ul a {
+	background-position: right;
+	background-repeat: no-repeat;
+	color: #adcaff;
+	display: block;
+	font-size: 14px;
+	font-variant: small-caps;
+	line-height: 25px;
+	text-decoration: none
+}
+#nav ul a:hover {
+	color: #f90
+}
+#nav ul ul {
+	background-color: #f90;
+	display: none;
+	height: 25px;
+	left: 1px;
+	margin-top: 2px;
+	padding: 0;
+	position: absolute;
+	right: 1px;
+	z-index: 6000
+}
+#nav ul ul a {
+	border: 0;
+	color: #fff;
+	float: left;
+	margin-top: -5px;
+	width: auto
+}
+#nav li li a:hover {
+	color: #000069
+}
+#nav li {
+	float: left;
+	margin: 0 60px 0 15px
+}
+#nav li li {
+	float: left;
+	margin-right: 30px
+}
+#nav li a:hover,#nav ul ul a:hover,#nav li.on ul {
+	display: block;
+	z-index: 6000
+}
+/* ---------- Main Styles ------------ */
+#main {
+	background-color: #f7f7f7;
+	border: 1px #666 solid;
+	border-radius: 0 0 9px 9px;
+	margin: auto;
+	min-height: 170px;
+	padding: 20px;
+	position: relative
+}
+/* ---------- Lists ------------ */
+li,table.paddedtable td {
+	padding: 5px
+}
+li.c2 {
+	display: inline;
+	list-style: none
+}
+ul.bulletlist {
+	margin: 0 0 15px 40px;
+	padding: 0
+}
+ul.clear {
+	overflow: hidden
+}
+ul.no_bullets {
+	list-style-type: none;
+	margin: 0 0 15px -5px;
+	padding: 0
+}
+.bulletlist li {
+	list-style-type: disc;
+	margin: 0;
+	padding: 0
+}
+.bulletlist li li {
+	list-style-type: circle
+}
+/* ---------- Mission Pages ------------ */
+.hdr {
+	color: #1414ba;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin-top: -5px
+}
+.see_h3 {
+	font-size: 15px;
+	font-weight: bold;
+}
+.sme,.sorce,.uars {
+	float: left;
+	margin-right: 20px;
+	padding-bottom: 20px;
+	text-align: center
+}
+.sorce img {
+	padding-bottom: 30px
+}
+.col1 {
+	float: left;
+	text-align: center
+}
+.col1 img {
+	padding-bottom: 20px
+}
+.col2 {
+	float: right;
+	width: 75%
+}
+/* ---------- Tables ------------ */
+#download table.fism {
+	margin-top: 8px;
+	width: 100%
+}
+#download table.fism td.left {
+	margin-left: 70px;
+	padding-right: 10px;
+	text-align: right
+}
+#download table.fism td.right {
+	text-align: left
+}
+div.pad50r {
+	float: left;
+	margin-right:50px
+}
+table.sitemap td {
+	width: 40%
+}
+table.ssi {
+	width: 100%
+}
+table.ssi th {
+	padding-right: 50px;
+	text-align: center
+}
+.padright td {
+	padding-right: 10px
+}
+td.padright {
+	padding-right: 20px
+}
+.srpm td {
+	padding-right: 50px
+}
+/* ---------- Misc ------------ */
+.bio {
+	float: left;
+	margin: 5px;
+	text-align: left;
+	width: 100%
+}
+.bio img {
+	border: 0;
+	float: left;
+	margin: 5px 10px 5px 5px;
+	width: 100px
+}
+.c1 span {
+	color: #b60402
+}
+.caption {
+	font-size: small;
+	font-style: italic;
+	padding: 0 5px 10px;
+	text-align: center
+}
+.hide {
+	display: none;
+	visibility: hidden
+}
+.notopmargin {
+	margin-top: 0;
+}
+a.hiddenlink {
+  color: #ccc; /* same color as the surrounding text */
+  text-decoration: none; /* to remove the underline */
+  cursor: text; /* to make the cursor stay as a text */ 
+ }
+.indent {
+	margin-left: 10px
+}
+.indented {
+	display: block;
+	margin: 10px 0 10px 15px
+}
+.indented dt,dd {
+	margin: 0 10px 0 30px
+}
+p.indented ul,li {
+	line-height: 1.3em;
+	margin: 0 10px 0 30px
+}
+.justify {
+	text-align: justify
+}
+.monospace {
+	color: #000;
+	font-family: Courier;
+	font-size: 100%
+}
+.pad {
+	padding: 10px 100px 40px;
+}
+.red {
+	color: #a2050a
+}
+#refspec {
+	background-color: #eee;
+	display: block;
+	float: right;
+	padding: 10px 20px 0;
+	margin-left: 10px;
+	text-align: center;
+}
+.refspec_img {
+	display: block;
+	padding-bottom: 5px;
+	width: 180px
+}
+.show {
+	visibility: visible
+}
+.small {
+	font-size: smaller;
+	vertical-align: baseline
+}
+.small_it {
+	font-size: smaller;
+	font-style: italic;
+	vertical-align: baseline
+}
+.tt {
+	font-family: courier
+}
+/* ---------- Self-Clear Floats ------------ */
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center
+}
+.center_div, .center img {
+	margin-left: auto;
+	margin-right: auto
+}
+table.center {
+	margin: 0 5%
+}
+.center_vertically {
+	height: 13px;
+	margin-top: -6.5px;
+	position: absolute;
+	top: 50%
+}
+.clearfloat {
+	clear: both
+}
+.floatleft {
+	float: left;
+	padding-right: 10px
+}
+.floatright {
+	float: right;
+	padding-left: 10px
+}
+.group:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden
+}
+.index_right {
+	float: right;
+	padding: 0
+}
+.left {
+	float: left;
+	margin-left: 0;
+	margin-right: auto;
+	text-align: left
+}
+.left_textbox {
+	border: 1px solid;
+	border-color: #bbb;
+	float: left;
+	padding: 0 10px 10px;
+	width: 250px
+}
+.right {
+	float: right;
+	margin-left: auto;
+	margin-right: 0;
+	text-align: right
+}
+/* ---------- Footers ------------ */
+#insidefooter {
+	background-image: url("../images/insidefooter_bkg.png");
+	background-position: bottom;
+	color: #ccc;
+	font-size: .8em;
+	padding: 3px 0;
+	text-align: center
+}
+#footer {
+	font-size: .8em;
+	margin-top: 4px;
+	text-align: center
+}
+/* --------- No Script ----------- */
+#noscript-padding {
+	padding-top:30px
+}
+#noscript-warning a:hover {
+	color:#20c;
+	text-decoration:underline
+}
+#noscript-warning {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width:100%;
+	z-index:101;
+	text-align: center;
+	font-weight: bold;
+	font-size: 130%;
+	color: #fff;
+	background-color: #f80;
+	padding: 5px 0;
 }
