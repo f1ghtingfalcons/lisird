@@ -1,0 +1,56 @@
+{
+    "missions": [
+        {
+            "name": "SORCE",
+            "instruments": [
+                {
+                    "name": "SOLSTICE",
+                    "start_date": 0,
+                    "end_date": 100,
+                    "wavelenght": 100
+                },
+                {
+                    "name": "TIM",
+                    "start_date": 50,
+                    "end_date": 100,
+                    "wavelenght": 500
+                },
+                {
+                    "name": "SIM",
+                    "start_date": 0,
+                    "end_date": 100,
+                    "wavelenght": 300
+                },
+                {
+                    "name": "XPS",
+                    "start_date": 0,
+                    "end_date": 100,
+                    "wavelenght": 200
+                }
+            ]
+        },
+        {
+            "name": "SME",
+            "instruments": [
+                {
+                    "name": "1.27 Micrometer Spectrometer",
+                    "start_date": 0,
+                    "end_date": 100,
+                    "wavelenght": 100
+                },
+                {
+                    "name": "Nitrogen Dioxide Spectrometer",
+                    "start_date": 50,
+                    "end_date": 100,
+                    "wavelenght": 500
+                },
+                {
+                    "name": "Ultraviolet Spectrometer",
+                    "start_date": 0,
+                    "end_date": 100,
+                    "wavelenght": 300
+                }
+            ]
+        }
+    ]
+}
