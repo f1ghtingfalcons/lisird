@@ -47,27 +47,27 @@ angular.module('lisirdApp')
 	    	"content": [
 	    		{
 	                "name": "SME",
-	                "link": "#/mission/sme"
+	                "link": "#/missions/sme"
 	            },
 	            {
 	                "name": "SORCE",
-	                "link": "#/mission/sorce"
+	                "link": "#/missions/sorce"
 	            },
 	            {
 	                "name": "TIMED/SEE",
-	                "link": "#/mission/timedsee"
+	                "link": "#/missions/timed-see"
 	            },
 	            {
 	                "name": "UARS",
-	                "link": "#/mission/uars"
+	                "link": "#/missions/uars"
 	            },
 	            {
 	                "name": "SDO",
-	                "link": "#/mission/sdo"
+	                "link": "#/missions/sdo"
 	            },
 	            {
 	                "name": "SNOE",
-	                "link": "#/snoe"
+	                "link": "#/missions/snoe"
 	            }
 	    	]
 	    },

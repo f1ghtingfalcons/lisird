@@ -291,7 +291,8 @@ ol {
 	margin: auto;
 	min-height: 170px;
 	padding: 20px;
-	position: relative
+	position: relative;
+	overflow: hidden;
 }
 
 #subMenu {
@@ -337,7 +338,7 @@ ul.no_bullets {
 	font-weight: bold;
 }
 .sme,.sorce,.uars {
-	float: left;
+	float:left;
 	margin-right: 20px;
 	padding-bottom: 20px;
 	text-align: center
