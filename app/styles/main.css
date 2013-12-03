@@ -159,9 +159,6 @@ p {
 ol {
 	margin-left: 5px
 }
-ul {
-	padding-bottom: 15px
-}
 /* ---------- Header ------------ */
 #logo,#logo_small {
 	background-repeat: no-repeat;
@@ -580,4 +577,12 @@ table.center {
 	color: #fff;
 	background-color: #f80;
 	padding: 5px 0;
+}
+
+.tabs_div {
+	border: 0;
+	padding: 0;
+	text-align: center;
+	vertical-align: text-bottom;
+	width: 100%;
 }

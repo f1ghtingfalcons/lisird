@@ -12,10 +12,12 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
+        <link rel="stylesheet" href="styles/LisirdDygraph.css">
+        <!-- endbuild -->   
 </head>
-  <body ng-app="lisirdApp">  	
+  <body ng-app="lisirdApp"> 
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -46,7 +48,7 @@
     				</ul>
     			</div>
     			<div id="main">
-    				<div ng-view></div>
+    				<div ng-view></div> 
     			</div>
     			<div id="insidefooter">
     				<a href="#/">Lisird Home</a> | 
@@ -77,6 +79,7 @@
     <script src="bower_components/angular/angular.js"></script>
     <!-- build:js scripts/modules.js -->
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls-0.7.0.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->

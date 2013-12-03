@@ -6,3 +6,4 @@ angular.module('lisirdApp')
   		$scope.data=data;
   	});
 });
+

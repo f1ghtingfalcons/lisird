@@ -1,0 +1,164 @@
+@charset "utf-8";
+/* ---------- Buttons ----------- */
+.button:hover,.minibutton:hover,.tabsbutton:hover {
+	color: #ffc800;
+	cursor: pointer;
+	background-image: url("../images/dd0000_f05a05.jpg");
+}
+
+.tabsbutton,.toggleOff,.toggleOn {
+	background-image: url("../images/f05a05_dd0000.jpg");
+	border-style: solid;
+	border-width: 2px;
+	border-color: #F66 #A00 #A00 #F66;
+	color: #fff;
+	display: inline;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	height: 24px;
+	width: 80px;
+	margin: 8px 0 10px 10px;
+}
+#plot.tabsbutton {
+	margin-left: 0;
+}
+
+/* ---------- Forms ------------ */
+.control_form_div {
+	float: left;
+	padding: 0 0 5px;
+	text-align: center;
+	width: 97%
+}
+
+.control_form_div_left {
+	float: left;
+	font-size: small;
+	line-height: 1.9em;
+	padding: 0 60px 5px 10px
+}
+
+.control_form_div_middle {
+	float: left;
+	font-size: small;
+	line-height: 1.9em;
+	padding: 0 0 5px 10px
+}
+
+.control_form_div_right {
+	float: right;
+	font-size: 13px;
+	line-height: 1.8em;
+	padding: 0 10px 0 0;
+	text-align: right
+}
+#download_options #filetype {
+	margin-right: 30px;
+}
+/* --------- Plot Area ----------- */
+/* Modified from: http://dygraphs.com/tests/styled-chart-labels.html */
+#plot1 { /* ID used for dygraphs */
+	float:left;
+	width:835px;
+	height:400px;
+	background-image:url('/lisird/images/lisird_watermark_sm.png');
+	background-repeat:no-repeat;
+	background-position:97% 89%;
+	margin-bottom: 15px;
+}
+#plot1 .dygraph-label { /* for title, x-axis and y-axis label */
+	font-family: Helvetica, Arial, sans-serif;
+}
+#plot1 .dygraph-title { /* for chart title */
+	font-size: 0.70em;
+	margin-left: -30px;
+}
+#plot1 .dygraph-ylabel { /* for y-axis label */
+	font-size: 0.80em;
+	text-align: center
+}
+#plot1 .dygraph-xlabel { /* for x-axis label */
+	font-size: 0.80em;
+	margin: 5px
+}
+#dygraphs-messages {
+	color: #a2050a;
+	text-align:center;
+	margin-top: 20%;
+	margin-bottom: 20%;
+}
+#load { /* for messages (i.e. loading plot, etc.) */
+	text-align:center;
+	margin-top: 20%;
+	margin-bottom: 20%;
+}
+
+/* ---------- Help Icon ------------ */
+/**
+ * Help tooltip modified from: http://psacake.com/web/jl.asp
+ * See: /lisird/test/terry/dygraphs/0.1/scripts/master.js
+ */
+.absolute-top-right {/*controls icon location*/
+	position: absolute;
+	top: -22px;
+	right: 0;
+	z-index: 9999 !important
+}
+.dygraphs-help b,
+.dygraphs-help-IE b,
+.dygraphs-help2 b {
+	color: #fff;
+	font-variant: small-caps
+}
+.dygraphs-help b, 
+.dygraphs-help-IE b{
+	font-size: 20px
+}
+.dygraphs-help2 b {
+	font-size: 17px
+}
+.dygraphs-help, 
+.dygraphs-help-IE, 
+.dygraphs-help2 {
+	position: relative;
+	background-image: url('/lisird/images/icon_info.png');
+	display: inline-block;
+	width: 26px;
+	height: 32px
+}
+.dygraphs-help span, 
+.dygraphs-help-IE span,
+.dygraphs-help2 span {
+	display: none;
+}
+.dygraphs-help:hover span,
+.dygraphs-help-IE:hover span,
+.dygraphs-help2:hover span {/*controls pop-up location*/
+	border: 1px solid #e80;
+	color: #000;
+	font-size: 14px;
+	font-weight: 400;
+	display: block;
+	position: absolute;
+	padding: 15px;
+	background-color: #f90;
+	border-radius: 8px;
+	box-shadow: 5px 5px 20px 2px #666;
+	right: 0
+}
+.dygraphs-help:hover span {
+	width: 240px;
+	text-align: right;
+	top: 40px
+}
+.dygraphs-help-IE:hover span {
+	width: 240px;
+	text-align: right;
+	top: 90px
+}
+.dygraphs-help2:hover span {
+	width: 170px;
+	text-align: left;
+	line-height: 20px;
+	top: 40px
+}

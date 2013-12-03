@@ -1,0 +1,126 @@
+<h1>LASP Time Series Server (LaTiS)</h1><br>
+
+<div id="box1">
+	<p>The LASP Time Series Server (LaTiS) is an <a target="_blank" href="http://en.wikipedia.org/wiki/Application_programming_interface">API</a> 
+	that allows software programs to access most data sets on LISIRD.* LaTiS provides customizable data access functionality. With a LaTiS URL a 
+	client can:</p>
+	<ul class="bulletlist">
+		<li>select a data set</li>
+		<li>specify the desired variables</li>
+		<li>specify the desired range</li>
+		<li>pass the result through a number of filters</li>
+		<li>specify an output format</li>
+	</ul>
+	<p>Specific details about LaTiS are provided below.</p>
+	<p class="small"><em>*Some data sets are not currently served by LaTiS. Information about their APIs may be found on their respective 
+	LISIRD pages.</em></p><br>
+	
+	<h2>Example LaTiS URLs:</h2>
+	<blockquote>
+		<h4>Spectral data from a single day of UARS, in CSV format:</h4>
+		<p><a href="http://lasp.colorado.edu/lisird/tss/uars_solstice_ssi.csv?wavelength,irradiance&amp;time=2001-01-01T12:00">
+		<span class="monospace">http://lasp.colorado.edu/lisird/tss/uars_solstice_ssi.csv?wavelength,irradiance&amp;time~2001-01-01</span></a></p>
+		
+		<h4>SORCE TSI data for one year</h4>
+		<p><a href="http://lasp.colorado.edu/lisird/tss/sorce_tsi_24hr.csv?&amp;time%3E=2005-01-01T12:00&amp;time%3C2006-01-01T12:00">
+		<span class="monospace">http://lasp.colorado.edu/lisird/tss/sorce_tsi_24hr.csv&amp;time&gt;=2005-01-01T12:00&amp;time&lt;
+		2006-01-01T12:00</span></a></p>
+		
+		<h4>Info page for Historical TSI</h4>
+		<p><a href="http://lasp.colorado.edu/lisird/tss/historical_tsi.html">
+		<span class="monospace">http://lasp.colorado.edu/lisird/tss/historical_tsi.html</span></a></p>
+		
+		<h4>IDL code to retrieve SORCE MgII data</h4>
+		<p><a href="http://lasp.colorado.edu/lisird/tss/sorce_mg_index.pro">
+		<span class="monospace">http://lasp.colorado.edu/lisird/tss/sorce_mg_index.pro</span></a></p>
+	</blockquote>
+</div><!-- end of div id="box1" -->
+
+<div id="tss">
+	<script>$.get('/lisird/tss/', function(data) {$('#tss').append(data);});</script>
+
+
+<title>Time Series Server</title>
+<link rel="stylesheet" type="text/css" href="http://lasp.colorado.edu/lisird/tss/resources/tss.css">
+
+
+<h1>Time Series Server</h1>
+<blockquote>
+<b><i>Usage:</i></b> http://lasp.colorado.edu/lisird/tss/<i>dataset</i>.<i>suffix</i>?<i>projection</i>&amp;<i>selection</i>&amp;<i>filter</i><br><br>
+<b><i>dataset:</i></b> Name of dataset (see <a href="#dataset">Available Datasets</a>)<br>
+<b><i>suffix:</i></b> Type of output (see <a href="#suffix">Output Options</a>)<br>
+<b><i>projection:</i></b> List of variables to return with optional <i>hyperslab</i> (index subset) definitions. Default to all.<br> The Dataset Descriptor Structure (DDS) will describe the variables for each dataset. Use the <i>dds</i> suffix to get a dataset's DDS. <br>
+<b><i>selection:</i></b> Zero or more relative constraints on a variable (e.g. time&gt;=2010-01-01). Each must be preceded by a '&amp;'.<br>
+<b><i>filter:</i></b> Zero or more filters to be applied to the data (see <a href="#filter">Filter Options</a>). Each must be preceded by a '&amp;'.<br>
+</blockquote>
+<h2><a name="dataset">Available Datasets</a></h2>
+<blockquote>
+<dl><dt><b>Total Solar Irradiance (TSI)</b></dt>
+<blockquote><dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/sorce_tsi_24hr.html">SORCE Total Solar Irradiance - Daily Average</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/sorce_tsi_6hr.html">SORCE Total Solar Irradiance - Six Hour Average</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/historical_tsi.html">Historical Total Solar Irradiance Reconstruction</a></i></b></dt>
+</blockquote></dl>
+<dl><dt><b>Solar Spectral Irradiance (SSI)</b></dt>
+<blockquote><dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/sorce_ssi.html">SORCE Solar Spectral Irradiance</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/timed_see_egs_l2.html">TIMED SEE EGS Solar Spectral Irradiance - Level 2</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/timed_see_xps_l2.html">TIMED SEE XPS Diode Irradiance - Level 2</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/timed_see_ssi.html">TIMED SEE Solar Spectral Irradiance - Level 3</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/timed_see_ssi_l3a.html">TIMED SEE Solar Spectral Irradiance - Level 3A</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/timed_see_diodes_l3.html">TIMED SEE XPS Diode Irradiance - Level 3</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/timed_see_diodes_l3a.html">TIMED SEE XPS Diode Irradiance - Level 3A</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/timed_see_lines_l3.html">TIMED SEE Solar Line Irradiance - Level 3</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/timed_see_lines_l3a.html">TIMED SEE Solar Line Irradiance - Level 3A</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/timed_see_ssi_l4.html">TIMED SEE Solar Spectral Irradiance - Level 4</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/timed_see_ssi_l4a.html">TIMED SEE Solar Spectral Irradiance - Level 4A</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/uars_solstice_ssi.html">UARS SOLSTICE Solar Spectral Irradiance</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/sme_ssi.html">SME Solar Spectral Irradiance</a></i></b></dt>
+</blockquote></dl>
+<dl><dt><b>Solar Indices</b></dt>
+<blockquote><dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/composite_lyman_alpha.html">Composite Solar Lyman-alpha</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/composite_mg_index.html">Composite Magnesium II Core-to-Wing Index</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/sorce_mg_index.html">SORCE Magnesium II Core-to-Wing Index</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/international_sunspot_number.html">International Sunspot Numbers</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/sfo_sunspot_indices.html">San Fernando Observatory/CSUN Sunspot Indices</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/noaa_radio_flux.html">Solar Radio Flux at 10.7cm - Merged</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/penticton_radio_flux_observed.html">Solar Radio Flux at 10.7cm - Observed</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/penticton_radio_flux_adjusted.html">Solar Radio Flux at 10.7cm - Adjusted</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/cak.html">Ca II K-Line</a></i></b></dt>
+</blockquote></dl>
+<dl><dt><b>Experimental Data from NOAA NGDC SPIDR Web Service</b></dt>
+<blockquote><dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/spidr_f107_absolute.html">Absolute daily solar radio flux</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/spidr_f107_adjusted.html">Adjusted daily solar radio flux</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/spidr_f107_observed.html">Observed daily solar radio flux</a></i></b></dt>
+<dt><b><i><a href="http://lasp.colorado.edu/lisird/tss/spidr_int_ssn.html">International Sunspot Number</a></i></b></dt>
+</blockquote></dl>
+
+</blockquote>
+<h2><a name="suffix">Output Options (<i>suffix</i>)</a></h2>
+<blockquote>
+<dl>
+<dt><b><i>csv</i></b></dt> <dd>ASCII comma separated values</dd>
+<dt><b><i>dods</i></b></dt> <dd>Standard OPeNDAP data output as defined by the Data Access Protocol (DAP), binary</dd>
+<dt><b><i>html</i></b></dt> <dd>Web interface to the data set, HTML</dd>
+<dt><b><i>dat</i></b></dt> <dd>Space delimited ASCII tabular output with Sequence variables flattened to a single row.</dd>
+<dt><b><i>bin</i></b></dt> <dd>IEEE 64-bit floats, little-endian</dd>
+<dt><b><i>json</i></b></dt> <dd>JavaScript Object Notation (JSON), ASCII</dd>
+<dt><b><i>info</i></b></dt> <dd>Information about the data set, ASCII</dd>
+<dt><b><i>das</i></b></dt> <dd>Standard OPeNDAP Dataset Attribute Structure (DAS), ASCII</dd>
+<dt><b><i>pro</i></b></dt> <dd>IDL code</dd>
+<dt><b><i>dds</i></b></dt> <dd>Standard OPeNDAP Dataset Descriptor Structure (DDS), ASCII</dd>
+</dl>
+</blockquote>
+<h2><a name="filter">Filter Options</a></h2>
+<blockquote>
+<dl>
+<dt><b><i>last</i></b></dt> <dd>return only the last time sample</dd>
+<dt><b><i>thin</i></b></dt> <dd>thin(n), apply a stride to return about n time samples</dd>
+<dt><b><i>replace_missing</i></b></dt> <dd>replace_missing(a), replace missing values with the value a</dd>
+<dt><b><i>exclude_missing</i></b></dt> <dd>exclude_missing(), exclude any time sample that has a missing value</dd>
+<dt><b><i>replace</i></b></dt> <dd>replace(a,b), replace any occurrence of the value a with b</dd>
+<dt><b><i>format_time</i></b></dt> <dd>format_time(format), format ASCII time output, see <a href="http://download.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html" target="_blank"> Java's SimpleDateFormat.</a> <br>Examples: format_time(yyyy-MM-dd'T'HH:mm:ss) yields 2012-01-01T23:59:59 <br> format_time(yyyyDDD) yields 2012001 <br> format_time(d MMM yyyy) yields 1 Jan 2012</dd>
+<dt><b><i>first</i></b></dt> <dd>return only the first time sample</dd>
+<dt><b><i>stride</i></b></dt> <dd>stride(n), return every nth time sample</dd>
+</dl>
+</blockquote>
+
+</div>
