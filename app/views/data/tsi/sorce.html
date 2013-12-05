@@ -1,7 +1,27 @@
 <h1>SORCE Total Solar Irradiance</h1>
-<plot>
-	Someday there will be a plot here :D
+<plot> 
+	<div ng-hide="graphData" id="dygraphs-messages">
+		Loading plot..
+		<br>
+		<img src="images/loading.gif">
+		<span id="upgrade-message"></span>
+	</div>
+	<div gh-dygraph data="graphData"></div>
 </plot>
+
+<div class="control_form_div">
+	<form id="selectdata">
+		<input type="hidden" id="dataset" value="tsi">
+		Long Names: <select name="element" id="element1">
+						<option selected="selected" value="tsi_1au">tsi_1au</option>
+						<option value="tsi_true_earth">tsi_true_earth</option>
+					</select> &nbsp;
+		Date Range: <input type="text" id="from" size="11" tabindex="1" class="hasDatepicker">
+			<span class="small"> to </span>
+			<input type="text" id="to" size="11" tabindex="2" class="hasDatepicker">
+			<input type="button" id="plot" class="tabsbutton" value="Plot">       		
+	</form>
+</div>
 
 <tabset style="background-color: #FFFFFF; border:1px solid; border-color:#ddd; font-size:12px; position: relative; border-radius: 7px;">
 	<tab heading="Download" style="padding: 0px; margin: 0px">

@@ -1,0 +1,13 @@
+<h1>LISIRD Mission Data</h1>
+<div id="missions">
+	<script>$.get('/lisird/scripts/missions.html', function(data) {$('#missions').append(data);});</script>
+<p class="red">Currently, we provide data for several LASP missions:</p>
+<p><a href="#/missions/sme/"> SME</a> - Solar Mesosphere Explorer</p>
+<p><a href="#/missions/sorce">SORCE</a> - Solar Radiation and Climate Experiment</p>
+<p><a href="#/missions/see"> TIMED/SEE</a> - Thermosphere Ionosphere Mesosphere Energetics and Dynamics</p>
+<p><a href="#/missions/uars/"> UARS/SOLSTICE</a> - Upper Atmosphere Research Satellite</p><br>
+<p class="red">Coming soon:</p>
+<p><a href="#/missions/sdo">SDO</a> - Solar Dynamics Observatory</p>
+<p><a href="#/missions/snoe/">SNOE</a> - Student Nitric Oxide Explorer</p><br>
+<p class="center">For more information on other LASP missions, please visit the <a target="_blank" href="http://lasp.colorado.edu/home/about/mission-history/">
+	LASP mission page</a></p></div>	

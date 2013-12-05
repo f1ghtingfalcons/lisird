@@ -33,7 +33,7 @@ angular.module('lisirdApp')
 	            },
 	            {
 	                "name": "SOLAR IMAGES",
-	                "link": "http://lasp.colorado.edu/pspt_access/"
+	                "link": "http://lasp.colorado.edu/pspt"
 	            },
 	            {
 	                "name": "SPACE WEATHER",
@@ -43,7 +43,7 @@ angular.module('lisirdApp')
 	    },
 	    {
 	    	"name":"MISSIONS",
-	    	"link":"#/mission",
+	    	"link":"#/missions",
 	    	"content": [
 	    		{
 	                "name": "SME",
