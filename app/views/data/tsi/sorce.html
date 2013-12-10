@@ -6,81 +6,86 @@
 		<img src="images/loading.gif">
 		<span id="upgrade-message"></span>
 	</div>
-	<div gh-dygraph data="graphData"></div>
+	<div id="plot1" gh-dygraph data="graphData" metadata="metadata" start="plotStartDate" end="plotEndDate"></div>
 </plot>
 
 <div class="control_form_div">
 	<form id="selectdata">
 		<input type="hidden" id="dataset" value="tsi">
-		Long Names: <select name="element" id="element1">
+		Long Names: <select ng-model="TSS_DEPENDENT_VARIABLE" ng-change="updatePlot()">
 						<option selected="selected" value="tsi_1au">tsi_1au</option>
 						<option value="tsi_true_earth">tsi_true_earth</option>
 					</select> &nbsp;
-		Date Range: <input type="text" id="from" size="11" tabindex="1" class="hasDatepicker">
+		Date Range: <input type="text" size='9' datepicker-popup="yyyy/MM/dd" datepicker-append-to-body="true" min="MIN_MYD" max="MAX_MYD" ng-model="plotStartDate">
 			<span class="small"> to </span>
-			<input type="text" id="to" size="11" tabindex="2" class="hasDatepicker">
-			<input type="button" id="plot" class="tabsbutton" value="Plot">       		
+			<input type="text" size='9' datepicker-popup="yyyy/MM/dd" datepicker-append-to-body="true" min="MIN_MYD" max="MAX_MYD" ng-model="plotEndDate">  		
 	</form>
 </div>
 
 <tabset style="background-color: #FFFFFF; border:1px solid; border-color:#ddd; font-size:12px; position: relative; border-radius: 7px;">
 	<tab heading="Download" style="padding: 0px; margin: 0px">
 		<div class="tabs_div">
-			<div>
-				<script>$.get('/lisird/scripts/download_options.html', function(data) {$('#download_options').append(data);});</script>
-			<div>
-			Output format:
-			<select id="filetype">
-				<option selected="selected" value="csv">Text (.csv)</option>
-				<option value="zip">Zipped CSV (.zip)</option>
-			</select>
-			</div></div><br>
-			<input type="radio" checked="checked" value="full" name="downloadchoice"> Full dataset &nbsp;
-			<input type="radio" value="subset" name="downloadchoice"> Displayed range <br>
-			<input type="button" onclick="download(['options']);" value="Download" class="tabsbutton"><br>
-			<a href="#/about/latis"> Access this data programmatically</a>			
+			<div style="padding: 15px">
+				<div>
+					<script>$.get('/lisird/scripts/download_options.html', function(data) {$('#download_options').append(data);});</script>
+				<div>
+				Output format:
+				<select id="filetype">
+					<option selected="selected" value="csv">Text (.csv)</option>
+					<option value="zip">Zipped CSV (.zip)</option>
+				</select>
+				</div></div><br>
+				<input type="radio" checked="checked" value="full" name="downloadchoice"> Full dataset &nbsp;
+				<input type="radio" value="subset" name="downloadchoice"> Displayed range <br>
+				<input type="button" onclick="download(['options']);" value="Download" class="tabsbutton"><br>
+				<a href="#/about/latis"> Access this data programmatically</a>			
+			</div>
 		</div>	
 	</tab>
 	<tab heading="About" style="padding: 0px; margin: 0px">
 		<div class="tabs_div" style="text-align: left">
-			<p><a href="#/missions/sorce/">The SORCE Mission Page</a></p>
-			<p>These measurements are made by the LASP Total Irradiance Monitor (<a target="_blank" href="http://lasp.colorado.edu/sorce/instruments/tim.htm">TIM</a>) 
-			instrument aboard the <a target="_blank" href="http://lasp.colorado.edu/sorce"> SORCE</a> spacecraft. TIM has been measuring total solar irradiance (TSI, W/m^2) 
-			since shortly after the SORCE launch in early 2003. This data set contains daily averaged TSI.</p>
-			
-			<p>The total solar irradiance (TSI) measurement monitors changes in	incident sunlight to the Earth's atmosphere. The TIM measures TSI to 
-			an estimated absolute accuracy of 350 ppm, 0.035%. Relative changes in solar irradiance are measured to less than 10 ppm/yr (0.001%/yr), 
-			allowing determination of possible long-term variations in the Sun's output.</p>
-			
-			<p>The Solar Radiation and Climate Experiment (<a target="_blank" href="http://lasp.colorado.edu/sorce/">SORCE</a>) is a NASA-sponsored satellite mission 
-			that is providing state-of-the-art measurements of incoming x-ray, ultraviolet, visible, near-infrared, and total solar radiation. The 
-			measurements provided by SORCE specifically address long-term climate change, natural variability and enhanced climate prediction, and 
-			atmospheric ozone and UV-B radiation. These measurements are critical to studies of the Sun; its effect on our Earth system; and its 
-			influence on humankind.</p>
-			
-			<h4>Details</h4>
-			<p><b>Units:</b> watts/meter^2</p>
-			<p><b>Time range:</b>  February 25, 2003 through 7 days prior to today</p>
-			<p><b>Update schedule:</b> daily</p>
-			<p><b>Dataset volume:</b>  The LASP ascii (la) representation of this dataset is about 150 bytes per day</p>
-			
-			<h4>Citation</h4>
-			<p>If you use this dataset please cite the following in any resulting publications:</p>
-			<p><em>Woods, Thomas; Martin Snow, 2010, "SORCE Total Spectral Irradiance", version, 
-			http://lasp.colorado.edu/lisird/sorce/sorce_ssi/index.html.</em></p>
-			
-			<h4>Reference</h4>
-			<p>Kopp, G. and Lean, J.L., "<a target="_blank" href="http://www.agu.org/pubs/crossref/2011/2010GL045777.shtml">A New, 
-			Lower Value of Total Solar Irradiance: 	Evidence and Climate Significance</a>," Geophys. Res. Letters Frontier article, Vol. 38, L01706, 
-			doi:10.1029/2010GL045777, 2011.</p>
-			
-			<p>Kopp, G., Heuerman, K., Harber, D., and Drake, V., "<a target="_blank" href="http://spie.org/x648.html?product_id=734553">The TSI 
-			Radiometer Facility - Absolute Calibrations for Total Solar Irradiance Instruments</a>", SPIE Proc. 6677-09, 26-28 Aug. 2007.</p>
+			<div style="padding: 15px">
+				<p><a href="#/missions/sorce/">The SORCE Mission Page</a></p>
+				<p>These measurements are made by the LASP Total Irradiance Monitor (<a target="_blank" href="http://lasp.colorado.edu/sorce/instruments/tim.htm">TIM</a>) 
+				instrument aboard the <a target="_blank" href="http://lasp.colorado.edu/sorce"> SORCE</a> spacecraft. TIM has been measuring total solar irradiance (TSI, W/m^2) 
+				since shortly after the SORCE launch in early 2003. This data set contains daily averaged TSI.</p>
+				
+				<p>The total solar irradiance (TSI) measurement monitors changes in	incident sunlight to the Earth's atmosphere. The TIM measures TSI to 
+				an estimated absolute accuracy of 350 ppm, 0.035%. Relative changes in solar irradiance are measured to less than 10 ppm/yr (0.001%/yr), 
+				allowing determination of possible long-term variations in the Sun's output.</p>
+				
+				<p>The Solar Radiation and Climate Experiment (<a target="_blank" href="http://lasp.colorado.edu/sorce/">SORCE</a>) is a NASA-sponsored satellite mission 
+				that is providing state-of-the-art measurements of incoming x-ray, ultraviolet, visible, near-infrared, and total solar radiation. The 
+				measurements provided by SORCE specifically address long-term climate change, natural variability and enhanced climate prediction, and 
+				atmospheric ozone and UV-B radiation. These measurements are critical to studies of the Sun; its effect on our Earth system; and its 
+				influence on humankind.</p>
+				
+				<h4>Details</h4>
+				<p><b>Units:</b> watts/meter^2</p>
+				<p><b>Time range:</b>  February 25, 2003 through 7 days prior to today</p>
+				<p><b>Update schedule:</b> daily</p>
+				<p><b>Dataset volume:</b>  The LASP ascii (la) representation of this dataset is about 150 bytes per day</p>
+				
+				<h4>Citation</h4>
+				<p>If you use this dataset please cite the following in any resulting publications:</p>
+				<p><em>Woods, Thomas; Martin Snow, 2010, "SORCE Total Spectral Irradiance", version, 
+				http://lasp.colorado.edu/lisird/sorce/sorce_ssi/index.html.</em></p>
+				
+				<h4>Reference</h4>
+				<p>Kopp, G. and Lean, J.L., "<a target="_blank" href="http://www.agu.org/pubs/crossref/2011/2010GL045777.shtml">A New, 
+				Lower Value of Total Solar Irradiance: 	Evidence and Climate Significance</a>," Geophys. Res. Letters Frontier article, Vol. 38, L01706, 
+				doi:10.1029/2010GL045777, 2011.</p>
+				
+				<p>Kopp, G., Heuerman, K., Harber, D., and Drake, V., "<a target="_blank" href="http://spie.org/x648.html?product_id=734553">The TSI 
+				Radiometer Facility - Absolute Calibrations for Total Solar Irradiance Instruments</a>", SPIE Proc. 6677-09, 26-28 Aug. 2007.</p>
+			</div>
 		</div>
 	</tab>
 	<tab heading="API" style="padding: 0px; margin: 0px">
 		<div class="tabs_div">
-			<p>This dataset is available via a web service interface. For more information see the <a href="#/about/latis">LISIRD LaTiS page</a>.</p>
+			<div style="padding: 15px">
+				<p>This dataset is available via a web service interface. For more information see the <a href="#/about/latis">LISIRD LaTiS page</a>.</p>
+			</div>
 		</div>
 	</tab>
 </tabset>

@@ -31,8 +31,13 @@
     <div id="wrapper" class="container">
     	<noscript><div id="noscript-padding"></div></noscript>
     	<div id="inner_wrapper">
-    		<div id="logo">
-    			<a href="#/">LISIRD - LASP Solar Irradiance Data Center</a>
+			<div ng-controller="logoCtrl">
+				<div ng-show="big" id="logo">
+					<a href="#/">LISIRD - LASP Solar Irradiance Data Center</a>
+	    		</div>
+	    		<div ng-hide="big" id="logo_small">
+					<a href="#/">LISIRD - LASP Solar Irradiance Data Center</a>
+	    		</div>
     		</div>
     		<div id="content">
     			<div ng-controller="navCtrl" id="nav">
@@ -76,6 +81,7 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/logoCtrl.js"></script>
     <script src="scripts/controllers/navBar.js"></script>
     <script src="scripts/controllers/missionCtrl.js"></script>
     <script src="scripts/controllers/tsiCtrl.js"></script>

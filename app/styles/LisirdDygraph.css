@@ -57,10 +57,14 @@
 /* --------- Plot Area ----------- */
 /* Modified from: http://dygraphs.com/tests/styled-chart-labels.html */
 #plot1 { /* ID used for dygraphs */
+	-moz-user-select: none; 
+	-webkit-user-select: none; 
+	-ms-user-select:none; 
+	user-select:none;
 	float:left;
 	width:835px;
 	height:400px;
-	background-image:url('/lisird/images/lisird_watermark_sm.png');
+	background-image:url('../images/lisird_watermark_sm.png');
 	background-repeat:no-repeat;
 	background-position:97% 89%;
 	margin-bottom: 15px;
@@ -120,7 +124,7 @@
 .dygraphs-help-IE, 
 .dygraphs-help2 {
 	position: relative;
-	background-image: url('/lisird/images/icon_info.png');
+	background-image: url('../images/icon_info.png');
 	display: inline-block;
 	width: 26px;
 	height: 32px

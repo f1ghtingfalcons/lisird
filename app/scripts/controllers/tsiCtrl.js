@@ -1,17 +1,35 @@
 angular.module('lisirdApp').controller('tsiCtrl', function ($scope,$http) {
-	$scope.TSS_INDEPENDENT_VARIABLE = 'time';
-	$scope.TSS_DEPENDENT_VARIABLE = 'tsi_1au';
-	$scope.DYGRAPHS_FILL_VALUE = null; // See bottom of http://dygraphs.com/data.html#array
+	
+	
+	
+	function initialize(){
+		$scope.TSS_INDEPENDENT_VARIABLE = 'time';
+		$scope.TSS_DEPENDENT_VARIABLE = 'tsi_1au';
+		$scope.DYGRAPHS_FILL_VALUE = null; // See bottom of http://dygraphs.com/data.html#array
+		$scope.getDataset();
+	}
 	
 	$scope.getDataset = function(){
 		$http.get('json/sorce_tsi_24hr.das').success(function(data){
 			$scope.metadata=$scope.objectifyMetadata(data);
 		});
-		$http.get('json/sorce_tsi_24hr.json').success(function(data){
-			$scope.graphData=$scope.jsonToArray(data);
-		});
+		if($scope.TSS_DEPENDENT_VARIABLE === 'tsi_1au'){
+			$http.get('json/sorce_tsi_24hr.json').success(function(data){
+				$scope.graphData=$scope.jsonToArray(data);
+				$scope.setRangeMinMaxDefault();
+			});
+		}
+		if($scope.TSS_DEPENDENT_VARIABLE === 'tsi_true_earth'){
+			$http.get('json/sorce_tsi_24hr_true.json').success(function(data){
+				$scope.graphData=$scope.jsonToArray(data);
+				$scope.setRangeMinMaxDefault();
+			});
+		}
 	};
-	$scope.getDataset();
+	
+	$scope.updatePlot = function(){
+		$scope.getDataset();
+	};
 	 
 	$scope.jsonToArray = function(json) {
 		var retval = $scope.createEmptyArray(json.length, 2); // 2 variables (x and y)
@@ -93,8 +111,16 @@ angular.module('lisirdApp').controller('tsiCtrl', function ($scope,$http) {
 		     xTitle : xTitle,
 		     xUnits : xUnits,
 		     parseStartDate : parseStartDate
-		};
+		}; 
 	};
+	
+	$scope.setRangeMinMaxDefault = function() {
+		$scope.MIN_YMD = $scope.dateToYmd($scope.graphData[0][0]);
+		$scope.MAX_YMD = $scope.dateToYmd($scope.graphData[$scope.graphData.length - 1][0]);
+		$scope.plotStartDate = $scope.MIN_YMD;
+		$scope.plotEndDate = $scope.MAX_YMD;
+	};
+
 	
 	$scope.ymdToDate = function(ymd) {
 		// Why the string must be split:
@@ -107,10 +133,26 @@ angular.module('lisirdApp').controller('tsiCtrl', function ($scope,$http) {
 		return $scope.makeDate(yyyy, mm, dd);
 	};
 	
+	$scope.dateToYmd = function(date) {
+		var yyyy = date.getFullYear();
+		var mm = (date.getMonth() + 1); // Months count 0-11; adjust.
+		var dd = date.getDate();
+
+		// Pad with zeros
+		if (yyyy < 10) {yyyy = '000' + yyyy;} 
+		else if (yyyy < 100)  {yyyy = '00' + yyyy;} 
+		else if (yyyy < 1000) {yyyy = '0' + yyyy;}
+		if (mm < 10) {mm = '0' + mm;}
+		if (dd < 10) {dd = '0' + dd;}
+		return yyyy + '-' + mm + '-' + dd;
+	};
+	
 	$scope.makeDate = function(yyyy, mm, dd) {
 		var retval = new Date(yyyy, mm - 1, dd); // Months count 0-11; adjust.
 		retval.setFullYear(yyyy);
 		// In constructor, years <100 are offset from 1900, not 0000. Be explicit with setFullYear.
 		return retval;
 	};
+		
+	initialize();
 });

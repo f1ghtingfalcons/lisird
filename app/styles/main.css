@@ -58,6 +58,7 @@ td,td img {
 }
 img,input,select {
 	vertical-align: middle;
+	text-align: center;
 }
 /* ---------- Elements ------------ */
 body {
@@ -175,7 +176,7 @@ ol {
 	height: 148px
 }
 #logo_small {
-	background-image: url("/lisird/images/LISIRD_title_sm.png");
+	background-image: url("../images/LISIRD_title_sm.png");
 	height: 34px
 }
 #logo a,#logo_small a {
