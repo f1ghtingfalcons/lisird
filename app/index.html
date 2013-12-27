@@ -12,7 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="bower_components/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="components/bootstrap-sass/bootstrap-2.3.2.css">
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/LisirdDygraph.css">
         <!-- endbuild -->   
@@ -56,10 +56,10 @@
     				<div ng-view></div> 
     			</div>
     			<div id="insidefooter">
-    				<a href="#/">Lisird Home</a> | 
+    				<a href="#/">LISIRD Home</a> | 
     				<a href="#/sitemap">Site Map</a> | 
     				<a href="#/about/contact">Contact Us</a> | 
-    				<a href="#/about/lisird">About Lisird</a> | 
+    				<a href="#/about/lisird">About LISIRD</a> | 
     			</div>
     		</div>
     		<div id="footer">
@@ -70,16 +70,17 @@
     	</div>    	
     </div>
     
-    <script src="bower_components/dygraphs/dygraph-combined.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
+    <script src="components/dygraphs/dygraph-combined.js"></script>
+    <script src="components/angular/angular.js"></script>
     <!-- build:js scripts/modules.js -->
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls-0.7.0.js"></script>
+    <script src="components/angular-resource/angular-resource.js"></script>
+    <script src="components/angular-cookies/angular-cookies.js"></script>
+    <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/services/factories.js"></script>    
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/logoCtrl.js"></script>
     <script src="scripts/controllers/navBar.js"></script>

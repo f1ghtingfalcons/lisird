@@ -1,6 +1,18 @@
 <h1>{{mission}}</h1>
 <div class="uars">
-	<div class="bluetextbox">Data to go Here</div>
-	<a target="_blank" href="http://umpgal.gsfc.nasa.gov/"><img alt="UARS Mission" src="images/UARS_Badge_sm.png"></a>
+	<div class="bluetextbox">
+		Maybe more goes here
+	</div>
+	<img alt="Mission Photo" src="{{vivoLocation}}{{results[0].imageURL.value}}">
 </div>
-<p>{{about}}</p>
+<div ng-bind-html-unsafe="results[0].desc.value"></div>
+<br><br>
+<div style="float:left;">
+	<p>Instruments:</p>
+	<ul ng-repeat="row in results"> 
+		<a href="{{row.instrumentURI.value}}">{{row.instrument.value}}</a>
+	</ul>
+	<br><br>
+	<p>Datasets:</p>
+	<ul ng-repeat="row in datasets">{{row.dataset.value}}</ul>
+</div>

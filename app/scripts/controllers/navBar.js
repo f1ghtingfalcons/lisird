@@ -55,7 +55,7 @@ angular.module('lisirdApp')
 	            },
 	            {
 	                "name": "TIMED/SEE",
-	                "link": "#/missions/timed-see"
+	                "link": "#/missions/timed"
 	            },
 	            {
 	                "name": "UARS",
