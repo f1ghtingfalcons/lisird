@@ -16,9 +16,9 @@
 						<option selected="selected" value="tsi_1au">tsi_1au</option>
 						<option value="tsi_true_earth">tsi_true_earth</option>
 					</select> &nbsp;
-		Date Range: <input type="text" size='9' datepicker-popup="yyyy/MM/dd" datepicker-append-to-body="true" min="MIN_MYD" max="MAX_MYD" ng-model="plotStartDate">
+		Date Range: <input type="text" size='9' datepicker-popup="MM/dd/yyyy" datepicker-append-to-body="true" min="MIN_MYD" max="MAX_MYD" ng-model="plotStartDate">
 			<span class="small"> to </span>
-			<input type="text" size='9' datepicker-popup="yyyy/MM/dd" datepicker-append-to-body="true" min="MIN_MYD" max="MAX_MYD" ng-model="plotEndDate">  		
+			<input type="text" size='9' datepicker-popup="MM/dd/yyyy" datepicker-append-to-body="true" min="MIN_MYD" max="MAX_MYD" ng-model="plotEndDate">  		
 	</form>
 </div>
 
@@ -29,7 +29,7 @@
 				<div>
 					<script>$.get('/lisird/scripts/download_options.html', function(data) {$('#download_options').append(data);});</script>
 				<div>
-				Output format:
+				Output format:formatDatasetResults
 				<select id="filetype">
 					<option selected="selected" value="csv">Text (.csv)</option>
 					<option value="zip">Zipped CSV (.zip)</option>
@@ -45,24 +45,12 @@
 	<tab heading="About" style="padding: 0px; margin: 0px">
 		<div class="tabs_div" style="text-align: left">
 			<div style="padding: 15px">
-				<p><a href="#/missions/sorce/">The SORCE Mission Page</a></p>
-				<p>These measurements are made by the LASP Total Irradiance Monitor (<a target="_blank" href="http://lasp.colorado.edu/sorce/instruments/tim.htm">TIM</a>) 
-				instrument aboard the <a target="_blank" href="http://lasp.colorado.edu/sorce"> SORCE</a> spacecraft. TIM has been measuring total solar irradiance (TSI, W/m^2) 
-				since shortly after the SORCE launch in early 2003. This data set contains daily averaged TSI.</p>
-				
-				<p>The total solar irradiance (TSI) measurement monitors changes in	incident sunlight to the Earth's atmosphere. The TIM measures TSI to 
-				an estimated absolute accuracy of 350 ppm, 0.035%. Relative changes in solar irradiance are measured to less than 10 ppm/yr (0.001%/yr), 
-				allowing determination of possible long-term variations in the Sun's output.</p>
-				
-				<p>The Solar Radiation and Climate Experiment (<a target="_blank" href="http://lasp.colorado.edu/sorce/">SORCE</a>) is a NASA-sponsored satellite mission 
-				that is providing state-of-the-art measurements of incoming x-ray, ultraviolet, visible, near-infrared, and total solar radiation. The 
-				measurements provided by SORCE specifically address long-term climate change, natural variability and enhanced climate prediction, and 
-				atmospheric ozone and UV-B radiation. These measurements are critical to studies of the Sun; its effect on our Earth system; and its 
-				influence on humankind.</p>
-				
+				<p><a href="#/missions/{{mission}}">The {{mission}} Mission Page</a></p>
+				<div ng-bind-html="about"></div>
 				<h4>Details</h4>
+				<p><b>Instruments:</b> {{instruments}}</p>
 				<p><b>Units:</b> watts/meter^2</p>
-				<p><b>Time range:</b>  February 25, 2003 through 7 days prior to today</p>
+				<p><b>Time range:</b>  {{MIN_YMD}} through {{MAX_YMD}}</p>
 				<p><b>Update schedule:</b> daily</p>
 				<p><b>Dataset volume:</b>  The LASP ascii (la) representation of this dataset is about 150 bytes per day</p>
 				

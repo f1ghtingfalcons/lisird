@@ -1,6 +1,6 @@
 'use strict';
 
-var lisirdApp = angular.module('lisirdApp', ['ngResource','ngCookies','ui.bootstrap'])
+var lisirdApp = angular.module('lisirdApp', ['ngResource','ngCookies','ui.bootstrap', 'ngSanitize'])
   .config(function ($routeProvider, $httpProvider) {
     $routeProvider
 		.when('/', {templateUrl: 'views/home/main.html', controller: 'MainCtrl'})
@@ -15,6 +15,7 @@ var lisirdApp = angular.module('lisirdApp', ['ngResource','ngCookies','ui.bootst
 		.when('/data/models', {templateUrl: 'views/data/models.html'})
 		.when('/data/space_weather', {templateUrl: 'views/data/space_weather'})
 		.when('/data/tsi/sorce', {templateUrl: 'views/data/tsi/sorce.html', controller: 'tsiCtrl'})
+		.when('/data/tsi/historical', {templateUrl: 'views/data/tsi/historical.html', controller: 'histtsiCtrl'})
 		//missions
 		.when('/missions', {templateUrl: 'views/missions/about.html'})
 		.when('/missions/:mission', {templateUrl: 'views/missions/missions.html', controller: 'missionCtrl'})
