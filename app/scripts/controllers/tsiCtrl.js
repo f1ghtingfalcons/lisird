@@ -4,7 +4,6 @@ angular.module('lisirdApp').controller('tsiCtrl', [
 	'dateService',
 	'dataFactory',
 	function ($scope,$http,dateService,dataFactory) {
-		$scope.mission="SORCE";
 		$scope.datasetURI = 'http://webdev1.lasp.colorado.edu:57529/vivo/individual/n210';
 		
 		function initialize(){
@@ -17,8 +16,8 @@ angular.module('lisirdApp').controller('tsiCtrl', [
 		
 		$scope.getDataset = function(){
 			$http.get('json/sorce_tsi_24hr.das').success(function(data){
+				dataFactory.setVariables($scope.TSS_INDEPENDENT_VARIABLE,$scope.TSS_DEPENDENT_VARIABLE,'',null,$scope.DYGRAPHS_FILL_VALUE);
 				$scope.metadata=dataFactory.objectifyMetadata(data);
-				dataFactory.setVariables($scope.TSS_INDEPENDENT_VARIABLE,$scope.TSS_DEPENDENT_VARIABLE,'',$scope.metadata.fillValue,$scope.DYGRAPHS_FILL_VALUE);
 			});
 			if($scope.TSS_DEPENDENT_VARIABLE === 'tsi_1au'){
 				$http.get('json/sorce_tsi_24hr.json').success(function(data){
@@ -36,7 +35,7 @@ angular.module('lisirdApp').controller('tsiCtrl', [
 		
 		$scope.getVIVOData = function(){
 			var urlBase='http://lasp-db-dev:3030/VIVO/query';
-			var queryStr= 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX vsto: <http://escience.rpi.edu/ontology/vsto/2/0/vsto.owl#> SELECT ?about ?instrument WHERE { <http://webdev1.lasp.colorado.edu:57529/vivo/individual/n210> vsto:hasDescription ?about . <http://webdev1.lasp.colorado.edu:57529/vivo/individual/n210> vsto:isMeasuredBy ?inst . ?inst rdfs:label ?instrument }';
+			var queryStr= 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> PREFIX vsto: <http://escience.rpi.edu/ontology/vsto/2/0/vsto.owl#> PREFIX laspcms: <http://localhost:8080/laspcms#> SELECT ?about ?instrument ?project WHERE { <' + $scope.datasetURI + '> vsto:hasDescription ?about . <' + $scope.datasetURI + '> vsto:isMeasuredBy ?inst . ?inst rdfs:label ?instrument . ?inst vsto:isInstrumentOn ?dep . ?dep vsto:isDeploymentOn ?sc . ?sc laspcms:spacecraftHasProject ?proj . ?proj rdfs:label ?project }';
 			var result = [];
 			dataFactory.getSPARQLQuery(urlBase, queryStr).success(function (data) {
 				$scope.error = '';
@@ -44,6 +43,7 @@ angular.module('lisirdApp').controller('tsiCtrl', [
 					result=dataFactory.formatDatasetResults(data);
 					$scope.about=result.about;
 					$scope.instruments=result.instruments;
+					$scope.mission=result.projects;
 				}
 			}).error(function (data, status) {
 				$scope.error = 'Endpoint returned: ' + status;

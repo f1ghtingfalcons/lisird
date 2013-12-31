@@ -26,11 +26,14 @@ angular.module('lisirdApp').factory('dataFactory', function ($http,dateService) 
 	function formatDatasetResults(json){
 		var about = '';
 		var instruments = [];
+		var projects = [];
 		about=json.results.bindings[0].about.value;
 		instruments=json.results.bindings[0].instrument.value;
+		projects=json.results.bindings[0].project.value;
 		return {
 			'about': about,
-			'instruments': instruments
+			'instruments': instruments,
+			'projects' : projects
 		};
 	}
 	
@@ -114,6 +117,7 @@ angular.module('lisirdApp').factory('dataFactory', function ($http,dateService) 
 		var parseStartDate = ymdAxisInfo.substring(ymdAxisInfo.indexOf('since') + 6);
 		//}
 		parseStartDate = dateService.ymdToDate(parseStartDate);
+		DYGRAPHS_FILL_VALUE=fillValue;
 		return {
 		     title : title,
 		     fillValue : fillValue,
