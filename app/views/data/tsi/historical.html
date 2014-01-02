@@ -6,38 +6,10 @@
 		<img src="images/loading.gif">
 		<span id="upgrade-message"></span>
 	</div>
-	<div id="plot1" gh-dygraph data="graphData" metadata="metadata" start="plotStartDate" end="plotEndDate"></div>
+	<div id="plot1" gh-highchart data="graphData" metadata="metadata"></div>
 </plot>
 
-<div class="control_form_div">
-	<form id="selectdata">
-		<input type="hidden" id="dataset" value="tsi">
-		Date Range: <input type="text" size='9' datepicker-popup="yyyy" datepicker-append-to-body="true" min="MIN_MYD" max="MAX_MYD" ng-model="plotStartDate">
-			<span class="small"> to </span>
-			<input type="text" size='9' datepicker-popup="yyyy" datepicker-append-to-body="true" min="MIN_MYD" max="MAX_MYD" ng-model="plotEndDate">  		
-	</form>
-</div>
-
 <tabset style="background-color: #FFFFFF; border:1px solid; border-color:#ddd; font-size:12px; position: relative; border-radius: 7px;">
-	<tab heading="Download" style="padding: 0px; margin: 0px">
-		<div class="tabs_div">
-			<div style="padding: 15px">
-				<div>
-					<script>$.get('/lisird/scripts/download_options.html', function(data) {$('#download_options').append(data);});</script>
-				<div>
-				Output format:
-				<select id="filetype">
-					<option selected="selected" value="csv">Text (.csv)</option>
-					<option value="zip">Zipped CSV (.zip)</option>
-				</select>
-				</div></div><br>
-				<input type="radio" checked="checked" value="full" name="downloadchoice"> Full dataset &nbsp;
-				<input type="radio" value="subset" name="downloadchoice"> Displayed range <br>
-				<input type="button" onclick="download(['options']);" value="Download" class="tabsbutton"><br>
-				<a href="#/about/latis"> Access this data programmatically</a>			
-			</div>
-		</div>	
-	</tab>
 	<tab heading="About" style="padding: 0px; margin: 0px">
 		<div class="tabs_div" style="text-align: left">
 			<div id="about" style="padding: 15px">

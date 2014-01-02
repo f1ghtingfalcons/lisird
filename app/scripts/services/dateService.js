@@ -13,7 +13,8 @@ angular.module('lisirdApp').factory('dateService', function ($http) {
 		return makeDate(yyyy, mm, dd);
 	}
 	
-	function dateToYmd(date) {
+	function dateToYmd(d) {
+		var date = new Date(d);
 		var yyyy = date.getFullYear();
 		var mm = (date.getMonth() + 1); // Months count 0-11; adjust.
 		var dd = date.getDate();

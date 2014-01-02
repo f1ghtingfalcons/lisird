@@ -1,0 +1,21 @@
+{
+  "name": "bower-highstock",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/moshbit/highstock.git"
+  },
+  "dependencies": {
+    "jquery": "~1.9.1"
+  },
+  "homepage": "https://github.com/moshbit/bower-highstock",
+  "_release": "e1fa3065a4",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e1fa3065a4a4c169827e6ef75c2b1e16d7b81640"
+  },
+  "_source": "git://github.com/moshbit/bower-highstock.git",
+  "_target": "*",
+  "_originalSource": "bower-highstock",
+  "_direct": true
+}

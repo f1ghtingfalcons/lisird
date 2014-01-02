@@ -46,12 +46,16 @@ angular.module('lisirdApp').factory('dataFactory', function ($http,dateService) 
 	}
 	
 	function jsonToArray(json) {
+		var tmp;
 		var retval = createEmptyArray(json.length, 2); // 2 variables (x and y)
 		for ( var i = 0; i < json.length; i++) {
 			var j = 0;
 			for ( var variable in json[i]) {
 				if (json[i].hasOwnProperty(variable)) { // See: http://stackoverflow.com/questions/684672/
-					retval[i][j] = extractSample(json[i], variable);
+					tmp = extractSample(json[i], variable);
+					if(tmp!==null){
+						retval[i][j] = tmp;
+					}
 					j++;
 				}
 			}
@@ -61,11 +65,11 @@ angular.module('lisirdApp').factory('dataFactory', function ($http,dateService) 
 		
 	function extractSample(sample, variable) {
 		if (variable === TSS_INDEPENDENT_VARIABLE) {
-			return new Date(sample[variable]);
+			return sample[variable];
 		} else if (variable === TSS_DEPENDENT_VARIABLE) {
 			var retval = sample[variable];
 			if (retval === metafill) {
-				return DYGRAPHS_FILL_VALUE;
+				return null;
 			} else {
 				return retval;
 			}

@@ -5,6 +5,7 @@ angular.module('lisirdApp').controller('tsiCtrl', [
 	'dataFactory',
 	function ($scope,$http,dateService,dataFactory) {
 		$scope.datasetURI = 'http://webdev1.lasp.colorado.edu:57529/vivo/individual/n210';
+		$scope.cadence="24hr";
 		
 		function initialize(){
 			$scope.TSS_INDEPENDENT_VARIABLE = 'time';
@@ -57,8 +58,6 @@ angular.module('lisirdApp').controller('tsiCtrl', [
 		$scope.setRangeMinMaxDefault = function() {
 			$scope.MIN_YMD = dateService.dateToYmd($scope.graphData[0][0]);
 			$scope.MAX_YMD = dateService.dateToYmd($scope.graphData[$scope.graphData.length - 1][0]);
-			$scope.plotStartDate = $scope.MIN_YMD;
-			$scope.plotEndDate = $scope.MAX_YMD;
 		};
 		 
 		initialize();
