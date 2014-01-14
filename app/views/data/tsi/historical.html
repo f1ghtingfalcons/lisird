@@ -1,0 +1,46 @@
+<h1>Historical Total Solar Irradiance</h1>
+<plot> 
+	<div ng-hide="graphData" id="dygraphs-messages">
+		Loading plot..
+		<br>
+		<img src="images/loading.gif">
+		<span id="upgrade-message"></span>
+	</div>
+	<div id="plot1" gh-highchart data="graphData" metadata="metadata"></div>
+</plot>
+
+<tabset style="background-color: #FFFFFF; border:1px solid; border-color:#ddd; font-size:12px; position: relative; border-radius: 7px;">
+	<tab heading="About" style="padding: 0px; margin: 0px">
+		<div class="tabs_div" style="text-align: left">
+			<div id="about" style="padding: 15px">
+				<p>This historical TSI reconstruction is based on Wang, Lean, and Sheeley (
+				<a target="_blank" href="http://www.iop.org/EJ/abstract/0004-637X/625/1/522/">"Modeling the Sun's Magnetic Field and Irradiance Since 1713"</a>, 
+				ApJ 625:522-538, 2005 May 20), which was used for solar forcings in the 2007 IPCC estimates.</p>
+			
+				<p>These data are updated through 2007 by Judith Lean (NRL) and then modified by:</p>
+				<ol>
+					<li>offsetting to the SORCE/TIM TSI absolute values using years 2003-2007 of overlap;</li> 
+					<li>replacing years 2003-2007 and extending to more recent times using annual averages of SORCE/TIM data.</li>
+				</ol>
+				<br>
+			
+				<h4>Reference</h4>
+				<ul>
+					<li>Kopp, G. and Lean, J. L., 
+					<a target="_blank" href="http://www.agu.org/pubs/crossref/2011/2010GL045777.shtml">"A New, 
+					Lower Value of Total Solar Irradiance: Evidence and Climate Significance,"</a> Geophys. Res. Letters Frontier article, Vol. 38, L01706, 
+					doi:10.1029/2010GL045777, 2011.</li>
+					<li>Kopp, G., Lawrence, G., and Rottman, G., <a target="_blank" href="http://www.springerlink.com/content/f64k343742k20225/">"The Total Irradiance 
+					Monitor (TIM): Science Results,"</a> Solar Physics, 230, 1, Aug. 2005, pp. 129-140.</li>
+				</ul>
+			</div>
+		</div>
+	</tab>
+	<tab heading="API" style="padding: 0px; margin: 0px">
+		<div class="tabs_div">
+			<div style="padding: 15px">
+				<p>This dataset is available via a web service interface. For more information see the <a href="#/about/latis">LISIRD LaTiS page</a>.</p>
+			</div>
+		</div>
+	</tab>
+</tabset>

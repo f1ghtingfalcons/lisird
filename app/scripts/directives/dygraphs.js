@@ -15,6 +15,9 @@ angular.module('lisirdApp').directive('ghDygraph', function(){
 			};
 			
 			function updateTitle(){
+				if(!scope.g){
+					return;
+				}
 				var mainTitle = scope.metadata.title;
 				scope.g.updateOptions({
 					title : mainTitle + getHelpTooltipHtml()
@@ -22,6 +25,9 @@ angular.module('lisirdApp').directive('ghDygraph', function(){
 			}
 			
 			function updateYLabel() {
+				if(!scope.g){
+					return;
+				}
 				var ylabel = scope.metadata.yTitle + ' (' + scope.metadata.yUnits + ')';
 		
 				scope.g.updateOptions({
@@ -29,19 +35,21 @@ angular.module('lisirdApp').directive('ghDygraph', function(){
 				     ylabel : ylabel
 				});
 			};
-			
+					
 			function updateXLabel() {
-				if (true) {
-					xlabel = ' '; // Hide the text, but maintain the spacing.
-				} else {
-					xlabel = scope.metadata.xTitle + ' (' + scope.metadata.xUnits + ')';
+				if(!scope.g){
+					return;
 				}
+				xlabel = scope.metadata.xTitle + ' (' + scope.metadata.xUnits + ')';
 				scope.g.updateOptions({
 					xlabel : xlabel
 				});
 			};
 			
 			function updateXRange(start,end){
+				if(!scope.g){
+					return;
+				}
 				//format to time since epoch
 				var s,e;
 				s=Date.parse(start);
@@ -52,7 +60,7 @@ angular.module('lisirdApp').directive('ghDygraph', function(){
 			}
 			
 			function valueFormatter(ms) {
-				return new Date(ms).strftime('%Y/%m/%d');
+				return new Date(ms).strftime('%m/%d/%Y');
 			};
 			
 			function createGraph(data){
@@ -88,6 +96,21 @@ angular.module('lisirdApp').directive('ghDygraph', function(){
 				return retval;
 			};
 			
+			function addZoomCallBack(){
+				if(!scope.g){
+					return;
+				}
+				var range = [];
+				scope.g.updateOptions({
+					zoomCallback: function(){
+						range=scope.g.xAxisRange();
+						scope.start=valueFormatter(range[0]);
+						scope.end=valueFormatter(range[1]);
+						scope.$apply();
+					}
+				});
+			};
+			
 			scope.$watch('start', function(newVal,oldVal){
 				if(!newVal){
 					return;
@@ -106,7 +129,11 @@ angular.module('lisirdApp').directive('ghDygraph', function(){
 				if(!newVal){
 					return;
 				}
+				if(scope.g){
+					scope.g.destroy();
+				}
 				scope.g=createGraph(newVal);
+				addZoomCallBack();
 				updateTitle();
 				updateYLabel();
 				updateXLabel();
