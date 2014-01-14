@@ -1,6 +1,6 @@
 'use strict';
 
-var lisirdApp = angular.module('lisirdApp', ['ngResource','ngCookies','ui.bootstrap', 'ngSanitize'])
+var lisirdApp = angular.module('lisirdApp', ['ngResource','ui.bootstrap','ngSanitize','ngRoute'])
   .config(function ($routeProvider, $httpProvider) {
     $routeProvider
 		.when('/', {templateUrl: 'views/home/main.html', controller: 'MainCtrl'})
