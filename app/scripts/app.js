@@ -29,7 +29,6 @@ var lisirdApp = angular.module('lisirdApp', ['ngResource','ui.bootstrap','ngSani
 		.otherwise({redirectTo: '/'});
 		
 		//enable crossdomain requests
-	    $httpProvider.defaults.withCredentials = true;
 	    delete $httpProvider.defaults.headers.common["X-Requested-With"];
 	    delete $httpProvider.defaults.headers.post["Content-Type"];
   });
