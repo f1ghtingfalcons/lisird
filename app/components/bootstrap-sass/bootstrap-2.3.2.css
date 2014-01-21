@@ -3794,6 +3794,7 @@ input[type="submit"].btn.btn-mini {
 
 .nav-tabs {
   border-bottom: 1px solid #ddd;
+  background: #e80 url("../../images/ui-bg_gloss-wave_35_ee8800_500x100.png") 50% 50% repeat-x;
 }
 
 .nav-tabs > li {
