@@ -4,15 +4,19 @@ angular.module('lisirdApp')
   	$scope.about="Information Goes Here";
   	$scope.datasets = [];
   	$scope.image = '';
+  	$scope.validMission = true;
   	//get mission data from sparql query
   	$scope.vivoLocation = "http://lemr-dev:8080/vivo";
   	$scope.urlBase = 'http://lemr-dev:3030/VIVO/query';
 	$scope.getMissionInfo = function () {
-		$scope.queryStr = 'PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> PREFIX vivo: <http://vivoweb.org/ontology/core#> PREFIX vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/public#> PREFIX vsto: <http://escience.rpi.edu/ontology/vsto/2/0/vsto.owl#> SELECT DISTINCT ?mission ?instrument ?instrumentURI ?desc ?imageURL WHERE { ?thing a vsto:Deployment . ?thing rdfs:label ?mission . FILTER (REGEX(STR(?mission), "'+$scope.mission+'", "i")) . OPTIONAL{ ?thing vsto:hasInstrument ?instrumentURI . ?instrumentURI rdfs:label ?instrument } . OPTIONAL{ ?thing vsto:isDeploymentOn ?sc . ?sc vivo:description ?desc} . OPTIONAL{ ?sc vitro:mainImage ?mi . ?mi vitro:thumbnailImage ?thumb . ?thumb vitro:downloadLocation ?image . ?image vitro:directDownloadUrl ?imageURL}}';
+		$scope.queryStr = 'PREFIX rdfs:  <http://www.w3.org/2000/01/rdf-schema#> PREFIX laspcms: <http://localhost:8080/laspcms#> PREFIX vivo: <http://vivoweb.org/ontology/core#> PREFIX vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/public#> PREFIX vsto: <http://escience.rpi.edu/ontology/vsto/2/0/vsto.owl#> SELECT DISTINCT ?mission ?instrument ?instrumentURI ?desc ?imageURL ?piURI ?pi WHERE { ?thing a vsto:Deployment . ?thing rdfs:label ?mission FILTER (REGEX(STR(?mission), "'+$scope.mission+'", "i")) . OPTIONAL{?thing vsto:isDeploymentOn ?spacecraft . ?spacecraft laspcms:hasPrincipalInvestigator ?piURI . ?piURI rdfs:label ?pi} . OPTIONAL{ ?thing vsto:hasInstrument ?instrumentURI . ?instrumentURI rdfs:label ?instrument } . OPTIONAL{ ?thing vsto:isDeploymentOn ?sc . ?sc vivo:description ?desc} . OPTIONAL{ ?sc vitro:mainImage ?mi . ?mi vitro:thumbnailImage ?thumb . ?thumb vitro:downloadLocation ?image . ?image vitro:directDownloadUrl ?imageURL}}';
 		dataFactory.getSPARQLQuery($scope.urlBase, $scope.queryStr).success(function (data) {
 			$scope.error = '';
 			if (data) {
 				$scope.results = data.results.bindings;
+				if(data.results.bindings.length == 0){
+  					$scope.validMission = false;
+				}
 			}
 		}).error(function (data, status) {
 			$scope.error = 'Fuseki returned: ' + status;
